@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block content %}
+		<h1>Galeria zdjęć</h2>
+		{% for n in albumy %}
+			<h2>{{n.name}}</h2>
+		<p class="galeryText"><a href="/galeria/{{n.slug}}/"><img src="/site_media/{{n.mini|thumbnail }}" title="{{n.name}}" alt="{{n.name}}"/>{{ n.name }}</a>
+			{{ n.opis }}
+		</p>
+		{% endfor %}
+{% endblock %}
+
+{% block title %}
+	Galeria
+{% endblock %}

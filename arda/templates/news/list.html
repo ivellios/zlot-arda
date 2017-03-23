@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load patroni_tags %}
+
+{% block title %}
+    Archiwum aktualności
+{% endblock %}
+
+
+{% block meta %}
+{% endblock meta %}
+
+{% block main %}
+
+<div class="col col-b-1">
+    <div class="col-inner">
+
+    {% for news in object_list %}
+    <article>
+        <header class="news-header">
+            <time class="news-time" datetime="{{ news.date }}">{{ news.date|date:"d.m.Y"}}</time>
+            <h2><a href="{% url "news_single" news.slug %}">{{ news.title }}</a></h2>
+        </header>
+        {% if news.image %}
+        <div class="news-image">
+            <img src="{{ news.image.url }}" alt="">
+        </div>
+        {% endif %}
+        <!-- / news-image -->
+        {{ news.text|safe }}
+    </article>
+    {% endfor %}
+    <nav class="paginator">
+        {% if page_obj.has_previous %}<a href="?page={{page_obj.previous_page_number}}">Nowsze</a> | {% endif %}{{page_obj.number}}/{{paginator.num_pages}} 
+        {% if page_obj.has_next %}| <a href="?page={{page_obj.next_page_number}}">Starsze</a>{% endif %}
+    </nav>
+    </div>
+</div>
+
+<aside class="col col-b-2">
+    <div class="col-inner">
+        <section>
+            {% sponsorzy_block %}
+        </section>
+        <section>
+            {% patroni_block %}
+        </section>
+    </div>
+</aside>
+{% endblock %}

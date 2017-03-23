@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Zapisałeś się{% endblock %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %} 
+{% endblock %}
+
+{% block content %}
+<div class="span-15 prepend-top append-bottom"  id="content">
+					<div class="main">
+							<h1>Zapisy na {{ zlot }}</h1>
+<p>
+    <strong>Znaleźliśmy twoją rejestrację sprzed roku na podany adres e-mail, jednak podane hasło nie zgadzało się z poprzednim. Ponieważ nie chcemy, by ktoś inny zapisał się pod twoimi danymi, na twój e-mail wysłaliśmy wiadomość z linkiem do szybkiej rejestracji na zlot.</strong>
+</p>
+<p>
+    Do zobaczenia na zlocie!
+</p>
+					</div>
+</div>
+
+{% endblock %}

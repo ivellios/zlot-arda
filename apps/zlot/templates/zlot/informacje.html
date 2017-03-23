@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %}
+{% endblock %}
+
+{% block title %}
+  {{ text.title }}
+{% endblock %} 
+
+{% block content %}
+  <h1>{{text.title}}</h1>
+  {{ text.content|safe }}
+{% endblock %} 

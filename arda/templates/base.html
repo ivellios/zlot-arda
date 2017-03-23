@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>      <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title %}Zlot Arda{% endblock %}</title>
+        <meta name="description" content="Doroczny, ogólnopolski zlot miłośników twórczości J.R.R. Tolkiena. Przez pięć dni, uczestnicy przenoszą się do magicznego świata tolkienowskiego Śródziemia poprzez udział w grach terenowych, warsztaty, turnieje i dobrą, przyjacielską atmosferę przy wspólnych ogniskach.">
+        <meta name="viewport" content="width=device-width">
+        {% block meta %}{% endblock %}
+        <link rel="stylesheet" href="/site_media/ui/css/style.css">
+
+        <!--[if lt IE 9]>
+            <script src="ui/js/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <!--[if lt IE 8]>
+            <div id="chromeframe" class="site-info">
+                <div class="site-info-inner">
+                    <p>Używasz <strong>przestarzałej</strong> przeglądarki. Proszę <a href="http://browsehappy.com/">zaktualizuj swoją przeglądarkę</a> lub <a href="http://www.google.com/chromeframe/?redirect=true">aktywuj Google Chrome Frame</a> aby poprawić jakość użytkowania.</p>
+                    <button type="button" title="Zamknij" class="close">X</button>
+                </div>
+            </div>
+        <![endif]-->
+
+        <div id="cookies" class="site-info">
+            <div class="site-info-inner">
+                <p><strong>Ta strona używa cookie.</strong> Są one niezbędne do prawidłowego funkcjonowania strony i część z nich mogła już zostać stworzona. Korzystając ze strony wyrażasz zgodę na używanie cookie, zgodnie z aktualnymi ustawieniami przeglądarki.</p>
+                <button type="button" title="Zamknij" class="close">X</button>
+            </div>
+        </div>
+
+        <nav class="accessibility-nav">
+            <h6 class="visuallyhidden">Szybki dostęp</h6>
+            <ul>
+                <li><a href="#important" class="visuallyhidden focusable">Najważniejsze informacje</a></li>
+                <li><a href="#navigation" class="visuallyhidden focusable">Nawigacja</a></li>
+                <li><a href="#main" class="visuallyhidden focusable">Treść</a></li>
+            </ul>
+        </nav>
+        <!-- / accessibility-nav -->
+
+        <div class="container">
+            <header class="header">
+                {% include 'usernav.html' %}
+                <!-- / user-nav -->
+
+                <div class="event" itemscope itemtype="http://data-vocabulary.org/Event">
+                    <h1 class="logo"><a href="/" itemprop="summary">Zlot Arda</a></h1>
+                    <section id="important" class="important">
+                        <h6 class="visuallyhidden">Najważniejsze informacje</h6>
+                        <a href="https://www.google.com/maps/@52.2339836,15.3791368,13.75z?hl=pl-PL" class="location" itemprop="location" itemscope itemtype="http://data-vocabulary.org/​Organization">
+                            <meta itemprop="name" content="" /> <!-- 'CONTENT' do uzupełnienia albo wywalić -->
+                            <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+                                <meta itemprop="street-address" content="" /> <!-- 'CONTENT' do uzupełanienia albo wywalić -->
+                                <span itemprop="locality">Krzeczków k/ Świebodzina</span>
+                                {% comment %}k/
+                                <span itemprop="region" content="Gmina Krzeczków">Krzeczków</span>
+                                <span itemprop="region" content="Powiat Świebodzin">Świebodzin</span>
+                                {% endcomment %}
+                                <meta itemprop="country" content="Polska" />
+                             </span>
+                            <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/​Geo"> <!-- 'CONTENT' do uzupełanienia albo wywalić całe geo -->
+                                <meta itemprop="latitude" content="50.318772" />
+                                <meta itemprop="longitude" content="18.425051" />
+                            </span>
+                        </a>
+                        <div class="time">
+                            <time datetime="2016-08-11" itemprop="startDate">11</time>&ndash;<time datetime="2016-08-15" itemprop="endDate">15 sierpnia 2016</time>
+                        </div>
+                        <nav class="links">
+                            <ul>
+                                <li><a href="{% url "zlot_text" 'informacje' %}" class="url" itemprop="url">więcej informacji</a></li>
+                                <li><a href="{% url "zapisy" 2016 %}" class="tickets" itemprop="tickets">zapisz się</a></li>
+                            </ul>
+                        </nav>
+                    </section>
+                </div>
+                <!-- / event -->
+            </header>
+            <!-- / header -->
+            {% block hero %}{% endblock %}
+            {% include 'navigation.html' %}
+
+            <div id="main" class="main">
+			{% block main %}
+			{% endblock %}
+            </div>
+            <!-- / main -->
+
+            <footer class="footer">
+                <p>Copyright 2009-2013 Zlot Arda. Wszelkie prawa zastrzeżone.</p>
+            </footer>
+            <!-- / footer -->
+        </div>
+        <!-- / container -->
+
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="{{ MEDIA_URL }}ui/js/jquery.cookie.min.js"></script>
+        <script src="{{ MEDIA_URL }}ui/js/jquery.masonry.min.js"></script>
+        <script src="{{ MEDIA_URL }}ui/js/jquery.cycle.min.js"></script>
+        <script src="{{ MEDIA_URL }}ui/js/jquery.colorbox.min.js"></script>
+        <script src="{{ MEDIA_URL }}ui/js/main.js"></script>
+        <script>
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=190324807725611";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+            var pageTracker = _gat._getTracker("UA-11059189-5");
+            pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+    </body>
+</html>

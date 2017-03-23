@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Zapisałeś się{% endblock %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %} 
+{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+	<div class="col-inner">
+		<h1>Zapisy na {{ zlot }}</h1>
+        <p>
+            <strong>Gratulujemy, {{ nick }}!</strong> Właśnie zapisałeś się na {{ zlot }}. Oczekuj informacji na poczcie i koniecznie regularnie odwiedzaj stronę zlotu (<a href="http://www.arda.org.pl">www.arda.org.pl</a>) oraz forum (<a href="http://www.forum.arda.org.pl">www.forum.arda.org.pl</a>). 
+        </p>
+        <p>
+            Do zobaczenia na zlocie!
+        </p>
+	</div>
+</div>
+
+{% include 'aside.html' %}
+{% endblock %}

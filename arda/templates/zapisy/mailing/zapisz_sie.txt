@@ -1,0 +1,10 @@
+Witaj,
+
+Uruchomiliśmy zapisy na tegoroczny Zlot Arda. Jako uczestnik zeszłorocznego spotkania możesz szybko potwierdzić swoją obecność klikająć poniższy link.
+
+http://www.arda.org.pl/zapisy/{{zlot.rok}}/{{uczestnik.id}}/{{uczestnik.get_register_hash}}/
+
+
+Do zobaczenia,
+
+Organizatorzy Zlotu Arda 2011

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ frakcja.nazwa }} - Zapis do frakcji{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+    <div class="col-inner">
+       <h1>Zapis do frakcji: {{ frakcja.nazwa }}</h1>
+       <p>Zamierzasz zapisać się do frakcji {{ frakcja.nazwa }} na larpie {{ frakcja.larp.nazwa }}. <strong>Pamiętaj, że nie będziesz mógł zmienić frakcji po jej wybraniu.</strong></p>
+       <p>Czy jesteś pewien?</p>
+       <form action="" method="post">
+        <input type="submit" value="Jestem pewien. Zapisz mnie" class="btn btn-a">
+       </form>
+    </div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

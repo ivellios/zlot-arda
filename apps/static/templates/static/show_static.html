@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>{{ static_content.title }}</h1>
+	{{ static_content.content|safe }}
+{% endblock %}
+
+{% block title %}
+	{{ static_content.title }}
+{% endblock %}

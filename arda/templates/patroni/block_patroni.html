@@ -1,0 +1,9 @@
+<h2>Patroni medialni</h2>
+<div class="link-cycle">
+	<div class="link-tiles">
+	{% for patron in objects_list %}
+		<a href="{{ patron.url }}" class="tile"><img src="{{ MEDIA_URL }}{{ patron.banner_small.url }}" alt="{{ patron.nazwa }}"></a>
+	<!-- / link-tiles -->
+	{% if not forloop.last %}{% if forloop.counter|divisibleby:"6" %}</div><div class="link-titles">{% endif %}{% endif %}
+	{% endfor %}
+	</div>

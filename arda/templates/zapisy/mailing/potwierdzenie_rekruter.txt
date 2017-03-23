@@ -1,0 +1,13 @@
+Witaj,
+
+Nowa osoba zapisała się na {{ zlot }} do Twojego plemienia.
+
+Dane uczestnika z rejestracji:
+Nick: {{ uczestnictwo.uczestnik.username }}
+E-mail: {{ uczestnictwo.uczestnik.email }}
+Wybrane plemię: {{ uczestnictwo.plemie }}
+
+
+Do zobaczenia,
+
+Organizatorzy Zlotu Arda

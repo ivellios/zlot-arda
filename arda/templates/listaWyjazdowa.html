@@ -1,0 +1,76 @@
+<table>
+    <thead>
+        <tr>
+            <td>
+                Uczestnik
+            </td>
+            <td>
+                Wiek
+            </td>
+            <td>
+                Urodziny
+            </td>
+            <td>
+                Pełnoletni
+            </td>
+            <td>
+                E-mail
+            </td>
+            <td>
+                Zapłacił/a
+            </td>
+            <td>
+                Plemię
+            </td>
+            <td>
+                Cały zlot
+            </td>
+            <td>
+                Od
+            </td>
+            <td>
+                Do
+            </td>
+            <td>
+                Rejestracja
+            </td>
+        </tr>
+    </thead>
+	{% for o in object_list %}
+	<tr>
+		<td>
+			{{ o.uczestnik.username }}
+		</td>
+		<td>
+			{{ o.uczestnik.wiek }}
+		</td>
+		<td>
+			{{ o.uczestnik.urodzony }}
+		</td>
+		<td>
+			{{ o.uczestnik.pelnoletni }}
+		</td>
+		<td>
+			{{ o.uczestnik.email }}
+		</td>
+		<td>
+			{{ o.zaplacil|yesno }}
+		</td>
+        <td>
+			{{ o.plemie }}
+		</td>
+		<td>
+			{{ o.caly|yesno }}
+		</td>
+		<td>
+			{% if o.od %}{{ o.od }}{% endif %}
+		</td>
+		<td>
+			{% if o.do %}{{ o.do }}{% endif %}
+		</td>
+		<td>
+			{{ o.timestamp }}
+		</td>
+	</tr>
+	{% endfor %}
+</table>

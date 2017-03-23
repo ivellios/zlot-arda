@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %}
+{% endblock %}
+
+{% block title %}
+Dokumenty na Zlot Arda
+{% endblock %}
+
+{% block content %}
+  <h1>Kto już z nami jedzie?</h1>
+  <p>Poniżej znajduje się lista osób, które zapisały się już na Zlot Arda w tym roku.</p>
+  {% for p in plemiona %}
+    <h2>{{p.nazwa}}</h2>
+    <p>
+    {% for u in p.zapisani %}
+      {{u.nick}}<br/>
+    {% endfor %}
+    </p>
+  {% endfor %}
+{% endblock %} 

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block head %}
+	<link rel="stylesheet" href="/site_media/css/lightbox.css" type="text/css" media="screen" />
+	<script src="/site_media/js/prototype.js" type="text/javascript"></script>
+	<script src="/site_media/js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
+	<script src="/site_media/js/lightbox.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+	<h1>{{ album.name }}</h1>
+	<p>{{ album.opis }}</p>
+	<ul class="thumbnails">
+		{% for n in obrazki %}
+		<li><a href="/site_media/{{n.image}}" rel="lightbox[album]" title="{{n.title}}"><img src="/site_media/{{n.image|thumbnail}}" alt="{{n.title}}"/></a></li>
+		{% endfor %}
+	</ul>
+
+
+{% endblock %}
+
+{% block title %}
+	{{ album.name }}
+{% endblock %}

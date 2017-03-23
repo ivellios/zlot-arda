@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Zapisałeś się{% endblock %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %} 
+{% endblock %}
+
+{% block content %}
+<h1>Zapisy na Zlot Arda 2009</h1>
+<p>
+    <strong>Gratulujemy, {{ nick }}!</strong> Właśnie zapisałeś się na {{ zlot }}. Oczekuj nowych informacji na poczcie i koniecznie regularnie odwiedzaj stronę zlotu (<a href="http://www.arda.org.pl">www.arda.org.pl</a>) oraz forum (<a href="http://www.forum.arda.org.pl">www.forum.arda.org.pl</a>). 
+</p>
+<p>Jeżeli nie należysz jeszcze do wybranego przez siebie plemienia <strong>koniecznie</strong> skontaktuj się z osobą odpowiedzialną za przyjmowanie nowych członków dla tego plemienia (<a href="/zlot/plemiona">sprawdź na stronie z listą plemion</a>).
+</p>
+<p>
+    Do zobaczenia na zlocie!
+</p>
+{% endblock %}

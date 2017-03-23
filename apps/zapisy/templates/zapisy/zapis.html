@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Zapisz się na zlot{% endblock %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %}
+{% endblock %}
+
+{% block content %}
+<h1>Zapisy na Zlot Arda 2009</h1>
+<p>
+    Wypełnij poniższy formularz, aby zapisać się na Zlot Arda 2009. <strong>Wszystkie pola są wymagane, chyba że zaznaczono inaczej.</strong></p><p>Jeżeli nie należysz jeszcze do wybranego przez siebie plemienia skontaktuj się z osobą odpowiedzialną za przyjmowanie nowych członków dla tego plemienia (<a href="/zlot/plemiona">sprawdź na stronie z plemionami</a>, osoba ta zostanie też automatycznie poinformowana o twoim zgłoszeniu).
+</p>
+<form action="" method="post">
+<table>
+{{ formularz.as_table }}
+</table>
+        <p class="center"><input type="submit" value="Zapisz się"/></p>
+
+</form>
+{% endblock %}

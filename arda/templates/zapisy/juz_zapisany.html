@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Zapisałeś się{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+	<div class="col-inner">
+		<h1>Zapisy na {{ zlot }}</h1>
+        <p>
+            <strong>Zapisałeś się na {{ zlot }} już wcześniej. Jeżeli nie dokonywałeś zapisu, skontaktuj się z nami.</strong>
+        </p>
+        {% comment %}<ul>
+            {% for larp in zlot.larp_set.all %}
+            <li>{{larp}}</li>
+            {% endfor %}
+        </ul>
+        {% endcomment %}
+        <p>
+            Do zobaczenia na zlocie!
+        </p>
+	</div>
+</div>
+
+{% include 'aside.html' %}
+{% endblock %}

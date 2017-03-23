@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %}
+{% endblock %}
+
+{% block title %}
+Dokumenty na Zlot Arda
+{% endblock %}
+
+{% block content %}
+  <h1>Dokumenty na Zlot Arda</h1>
+  {% for d in dokumenty %}
+    <p><a href='/site_media/{{d.plik}}'>{{ d.nazwa }}</a> - {{ d.opis }}</p>
+  {% endfor %}
+{% endblock %}

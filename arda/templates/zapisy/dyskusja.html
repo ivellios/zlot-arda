@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Dyskusja dla frakcji {{fu.frakcja}}{% endblock %}
+
+{% block main %}
+<article class="col col-b-1">
+	<div class="col-inner">
+	  {% with fu.frakcja as frakcja %}
+      <h1 id="{{frakcja.slug}}">{{ frakcja.nazwa }}</h1>
+       {% if frakcja.image %}
+        <div class="news-image">
+          <img src="http://arda.org.pl{{ frakcja.image.url }}" alt="Obraz dla frakcji"/>
+        </div>
+       {% endif %}
+      <h2>Opis frakcji</h2>
+      {{ frakcja.opis|safe }}
+      <h2>Wprowadzenie fabularne</h2>
+      {{ frakcja.wprowadzenie|safe }}
+      <h2>Pełny skład frakcji</h2>
+      <ul>
+      {% for uczestnik in frakcja.frakcjauczestnik_set.all %}
+        <li>{{ uczestnik.uczestnik }}</li>
+      {% endfor %}
+      </ul>
+      {% endwith %}
+	</div>
+</article>
+<aside class="col col-b-2">
+    <div class="col-inner">
+     <h2>Dyskusja dla członków</h2>
+
+    {% if lista_wpisow %}
+      {% for wpis in lista_wpisow %}
+        <p><strong>{{ wpis.fu.uczestnik }}</strong>: {{ wpis.text|linebreaks }}<br/><small>Dodano: {{ wpis.timestamp }}</small></p>
+      {% endfor %}
+    {% else %}
+    <p>Aktualnie brak wpisów w dyskusji</p>
+    {% endif %}
+    
+    <h3>Dodaj wpis</h3>
+    <form action="" method="post">
+      {{ form.as_p }}
+      <input type="submit" value="Dodaj wpis" class="btn btn-b"/>
+    </form>
+    </div>
+</aside>
+{% endblock %}

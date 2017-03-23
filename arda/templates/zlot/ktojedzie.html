@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Kto z nami jedzie
+{% endblock %}
+
+{% block content %}
+<div class="span-15 prepend-top append-bottom"  id="content">
+					<div class="main">
+						<h1>Kto już z nami jedzie?</h1>
+						  <p>Poniżej znajduje się lista osób, które zapisały się już na Zlot Arda w tym roku.</p>
+						  {% for p in plemiona %}
+						    <h3>{{p.nazwa}}</h3>
+						    <p>
+						    {% for u in p.zapisani %}
+						      {{u.username}}<br/>
+						    {% endfor %}
+						    </p>
+						  {% endfor %}							
+					</div>
+				</div>
+{% endblock %} 

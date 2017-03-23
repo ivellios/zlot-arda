@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %}
+{% endblock %}
+
+{% block title %}
+Plemiona na Zlocie Arda
+{% endblock %}
+
+{% block content %}
+  <h1>Plemiona na Zlocie Arda</h1>
+  <h2>Lista plemion</h2>
+  <a id='lista'></a>
+  <p>{% for p in plemiona %}
+    {% if p.showonpage %}
+    <a href='#plemie{{ p.id }}'>{{ p.nazwa }}</a><br/>
+    {% endif %}
+  {% endfor %}
+  </p>
+  <h2>Opis plemion</h2>
+  {% for p in plemiona %}
+    {% if p.showonpage %}
+    <a id='plemie{{p.id}}'></a><h3>{{ p.nazwa }}</h3>
+    <p>{{ p.opis|safe }}</p>
+    <p>Kontakt z <strong>{{ p.nick }}</strong><br/>
+    email: <a href="mailto:{{ p.rekruter_mail }}">{{ p.rekruter_mail }}</a><br/>
+    {% if p.gg %}
+      gg: <a href="gg:{{ p.gg }}">{{ p.gg }} <img class="noframe" src="http://status.gadu-gadu.pl/users/status.asp?id={{ p.gg }}&amp;styl=1" alt="" /></a>
+    {% endif %}</p>
+    <p>
+    <a href='#lista'>Do góry</a>
+    </p>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

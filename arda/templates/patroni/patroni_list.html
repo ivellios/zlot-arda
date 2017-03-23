@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Partnerzy{% endblock %}
+
+{% block main %}
+<div class="col-inner">
+    {% if sponsor_list %}
+    <h1>Sponsorzy</h1>
+    <div class="link-tiles">
+    {% for object in sponsor_list %}
+        <a class="tile" href="{{ object.url }}" title="{{ object.nazwa }}"><img class="bcenter" src="{{ object.banner.url }}" alt="{{ object.nazwa }}"/></a>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if patron_list %}
+    <h1>Patroni medialni</h1>
+    <div class="link-tiles full-width">
+    {% for object in patron_list %}
+        <a class="tile" href="{{ object.url }}" title="{{ object.nazwa }}"><img class="bcenter" src="{{ object.banner.url }}" alt="{{ object.nazwa }}"/></a>
+    {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

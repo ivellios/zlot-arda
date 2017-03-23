@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block right_menu %}
+  {% include 'news/right_menu.html' %}
+{% endblock %}
+
+
+{% block content %}
+	<h2>{{ news.title }}</h2>
+	<p class="newsDate">Napisany <strong>{{ news.date|date:"Y.m.d o H:i" }}</strong>, 
+	w kategoriach:
+	{% for i in news.category.all %}
+	<a href="/news/category/{{ i.slug }}/">{{ i.name }}</a>{% if not forloop.last %}, {% endif %}
+	{% endfor %}
+	</p>
+	<p class="newsText">{{ news.text|safe }}</p>
+{% endblock %}
+
+{% block title %}
+	{{ news.title }}
+{% endblock %}

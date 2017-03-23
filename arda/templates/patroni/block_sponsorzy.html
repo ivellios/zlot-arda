@@ -1,0 +1,7 @@
+<h2>Sponsorzy</h2>
+<div class="link-tiles">
+	{% for sponsor in objects_list %}
+	<a href="{{ sponsor.url }}" class="tile wide"><img src="{{ MEDIA_URL}}{{ sponsor.banner_small.url }}" alt="{{ sponsor.nazwa }}"></a>
+	{% endfor %}
+</div>
+<!-- / link-tiles -->

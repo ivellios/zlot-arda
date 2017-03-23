@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load thumbnails %}
+
+{% block title %}
+	{{ album.name }}
+{% endblock %}
+
+{% block main %}
+<article>
+
+    <header class="col-inner">
+        <h1>{{ album.name }}</h1>
+    </header>
+    <!-- / col-inner -->
+
+    <div class="col col-b-1">
+        <div class="gallery">
+        {% for n in obrazki %}
+            <a href="{{MEDIA_URL}}{{n.image}}" class="thumb col col-a" title="{{ n.title }}"><span class="col-inner"><img src="{{n.image|thumbnail_crop:"170x170"}}" alt="{{ n.title }}"></span></a>
+        {% endfor %}
+        </div>
+        <!-- / gallery -->
+    </div>
+    <!-- / col col-b-1 -->
+
+    <div class="col col-b-2">
+        <div class="col-inner">
+        {{ album.opis|safe }}
+        </div>
+        <!-- / col-inner -->
+    </div>
+    <!-- / col col-b-2 -->
+
+</article>
+{% endblock main %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Głosowanie na organizatorów Zlotu Arda 2015
+{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+    <div class="col-inner">
+        <h1>Głosowanie na organizatorów Zlotu Arda 2015</h1>
+            <p>
+                Jesteś na stronie głosowania na organizatorów Zlotu Arda 2015. Głosowanie możliwe jest tylko do 31 października do północy. Po tym terminie głosy zostaną zliczone i ogłoszone 1 listopada na forum oraz stronie internetowej Zlotu. W głosowaniu biorą udział osoby, które odwiedziły forum po 1 października 2011 roku lub rejestrowały się w poprzednich latach na Zlot Arda poprzez system na stronie internetowej.
+            </p>
+            <p>
+                Oddajesz głos na podstawie e-maila, który otrzymałeś na adres: <strong>{{ voter.email }}</strong>. Jeżeli to nie twój adres, nie oddawaj głosu. Pamiętaj, że gdy już zagłosujesz, nie będziesz mógł/mogła zmienić zdania. Pamiętaj, żeby wcześniej zapoznać się z <a href="http://arda.org.pl/forum/viewforum.php?f=45">kandydaturami i dyskusją na forum</a>.
+            </p>
+            <p>
+                Swój głos oddaję na kandydaturę (podano w kolejności alfabetycznej):
+            </p>
+            <form action="/vote/{{ voter.hashset }}" method="POST">
+                <p><input name="vote" type="radio" value="I" id="vote_I"/> <label for="vote_I">Isilya i Lejba</label></p>
+                <p><input name="vote" type="radio" value="R" id="vote_R"/> <label for="vote_R">Ravenne i Ataron</label></p>
+                <p><input type="submit" value="Głosuję!"/></p>
+            </form>
+    </div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

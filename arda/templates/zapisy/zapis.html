@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Zapisz się na zlot{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+	<div class="col-inner">
+		<h1>Zapisy na Zlot Arda {{ zlot.rok }}</h1>
+		{% if zlot.zapisy_otwarte %}
+	    <h2>Dla dotychczasowych uczestników</h2>
+	    <img src="/site_media/images/pen.jpg" alt="" class="right bordered"/>
+	    <p>
+	        Jeżeli byłeś na poprzednim Zlocie Arda, posiadasz już konto na stronie. Aby zapisać się na Zlot, przejdź do <a href="{% url 'zapisy_zalogowany' zlot.rok %}">strony zapisów dla dotychczasowych uczestników</a> aby bardzo szybko dołączyć do grona uczestników tegorocznego spotkania.
+	    </p>
+	    
+	    <h2>Nowy uczestnik</h2>
+	    <p>
+	        Jeżeli nie byłeś na Zlocie Arda, lub rejestrowałeś się w ubiegłym roku przy akredytacji, zapisz się na Zlot. Równocześnie utworzone zostanie twoje indywidualne konto w serwisie.
+	    </p>
+		<p>
+		    Wypełnij poniższy formularz, aby zapisać się na Zlot Arda. <strong>Wszystkie pola są wymagane, chyba że zaznaczono inaczej.</strong>
+		</p>
+		<form action="" method="post">
+		
+		<table id="zapisy"> 
+			<tr><th><label for="id_username">Nick:</label></th><td>{{ formularz.username }}
+				{% if formularz.username.errors %}<br/><span class="error">{% for e in formularz.username.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_password">Hasło:</label></th><td>{{ formularz.password }}
+				{% if formularz.password.errors %}<br/><span class="error">{% for e in formularz.password.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_password2">Potwierdź hasło:</label></th><td>{{ formularz.password2 }}
+				{% if formularz.password2.errors %}<br/><span class="error">{% for e in formularz.password2.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_email">Adres e-mail:</label></th><td>{{ formularz.email }}
+				{% if formularz.email.errors %}<br/><span class="error">{% for e in formularz.email.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_caly">Na cały zlot:</label></th><td>{{ formularz.caly }} 
+				{% if formularz.caly.errors %}<br/><span class="error">{% for e in formularz.caly.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_od">Od:</label></th><td>
+				<input type="text" name="od" id="id_od" placeholder="{{ zlot.start|date:"Y-m-d" }}">
+				<br />Jeżeli jedziesz na część zlotu, podaj od kiedy będziesz (RRRR-MM-DD)<br/>W przeciwnym razie pozostaw puste.
+				{% if formularz.od.errors %}<br/><span class="error">{% for e in formularz.od.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_do">Do:</label></th><td>
+				<input type="text" name="od" id="id_do" placeholder="{{ zlot.koniec|date:"Y-m-d" }}">
+				<br />Jeżeli jedziesz na część zlotu, podaj do kiedy będziesz (RRRR-MM-DD)<br/>W przeciwnym razie pozostaw puste.
+				{% if formularz.do.errors %}<br/><span class="error">{% for e in formularz.do.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_caly">Chcę wziąć udział w LARP-ie:</label></th><td>{{ formularz.larp_uczestnictwo }}
+				{% if formularz.larp_uczestnictwo.errors %}<br/><span class="error">{% for e in formularz.larp_uczestnictwo.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+			<tr><th><label for="id_caly">Jaka postać cię interesuje:</label></th><td>{{ formularz.larp_postac }}
+				{% if formularz.larp_postac.errors %}<br/><span class="error">{% for e in formularz.larp_postac.errors %}{{ e }}{% if not forloop.last %},{% endif %}{% endfor %}</span>{% endif %}
+			</td></tr> 
+		</table> 
+		
+		<p class="alt">Rejestrując się wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb zwiazanych z organizacją Zlotu Arda oraz informowania o aktualnych wydarzeniach związanych ze Zlotem Arda przez <a href="/zlot/o-nas/">Organizatorów Zlotu Arda</a> {zgodnie z ustawą z dnia 29.08.1997 o Ochronie Danych Osobowych Dz.Ust.nr 133 poz 883}.</p>
+		        <p class="center"><input type="submit" value="Zapisz się"/></p>
+		
+		</form>
+		{% else %}
+		<p>
+			Zapisy w tym roku zostały już zamknięte. Nie jest jednak za późno. Wciąż możesz wydrukować, wypełnić formularz rejestracyjny i przyjechać z nim na {{ zlot }}. 
+		</p>
+		<p>
+			Pamiętaj jednak, by wcześniej skontaktować się z Przewodnikiem Plemienia, do którego chcesz dołączyć i upewnić się, że dostaniesz zgodę na grę w tym plemieniu. 
+		</p>
+		<p>
+			Do zobaczenia na miejscu!
+		</p>
+		{% endif %}
+	</div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

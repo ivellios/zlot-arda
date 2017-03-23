@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Zaloguj się{% endblock %}
+
+{% block right_menu %}
+  {% include 'zlot/right_menu.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+    <div class="col-inner">
+	   <h1>Logowanie do serwisu</h1>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+                <p>{{ form.username.label_tag }}</p>
+                <p>{{ form.username }}</p>
+                <p>{{ form.password.label_tag }}</p>
+                <p>{{ form.password }}</p>
+            <input type="submit" value="Zaloguj się" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+
+        Jeżeli nie pamiętasz swojego nicku lub hasła, wypełnij <a href="{% url 'password_reset' %}">formularz resetowania hasła</a>.
+    </div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

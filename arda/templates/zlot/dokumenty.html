@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dokumenty na Zlot Arda
+{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+    <div class="col-inner">
+        <h1>Dokumenty na Zlot Arda</h1>
+			{% for d in dokumenty %}
+          <p><a href='/site_media/{{d.plik}}'>{{ d.nazwa }}</a> (plik {{d.extension|upper}}, {{d.plik.size|filesizeformat}})<br/>{{ d.opis }}</p>
+            {% endfor %}
+	</div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

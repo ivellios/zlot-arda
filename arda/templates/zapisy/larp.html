@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ larp }}{% endblock %}
+
+{% block meta %}
+{% if larp.obraz %}
+<meta property="og:image" content="http://arda.org.pl{{ larp.obraz.url }}" />
+{% endif %}
+<meta property="og:title" content="{{ larp }}" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="{{ larp.opis|striptags|truncatewords:'100' }}" />
+{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+    <div class="col-inner">
+       <h1>{{ larp }}</h1>
+       {{ larp.opis|safe }}
+    </div>
+    {% if larp.frakcja_set.all %}
+    <h2>Dostępne frakcje</h2>
+    <ul>
+    {% for frakcja in larp.frakcja_set.all %}
+        <li>{% if frakcja.dostepny_opis %}<a href="{% url frakcja_text larp.slug frakcja.slug %}">{{ frakcja }}</a>{% else %}{{ frakcja }}{% endif %}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="fb-like" data-send="false" data-show-faces="true"></div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

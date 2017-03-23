@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ news.title }}
+{% endblock %}
+
+
+{% block meta %}
+{% if news.image %}
+<meta property="og:image" content="http://arda.org.pl{{ news.image.url }}" />
+{% endif %}
+<meta property="og:title" content="{{ news.title }}" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="{{ news.text|striptags|truncatewords:'100' }}" />
+{% endblock meta %}
+
+{% block main %}
+
+<article class="col col-b-1">
+    <div class="col-inner">
+    <header class="news-header">
+        <time class="news-time" datetime="{{ news.date }}">{{ news.date|date:"d.m.Y"}}</time>
+        <h1>{{ news.title }}</h1>
+    </header>
+    {% if news.image %}
+    <div class="news-image">
+        <img src="{{ news.image.url }}" alt="">
+    </div>
+    {% endif %}
+    <!-- / news-image -->
+    {{ news.text|safe }}
+    </div>
+    <div class="fb-like" data-send="false" data-show-faces="true"></div>
+</article>
+{% include 'aside.html' %}
+{% endblock %}

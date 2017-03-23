@@ -1,0 +1,47 @@
+1{% extends "base.html" %}
+
+{% block title %}{{ frakcja.nazwa }} - LARP: {{ frakcja.larp.nazwa }}{% endblock %}
+
+
+{% block meta %}
+{% if frakcja.image %}
+<meta property="og:image" content="http://arda.org.pl{{ frakcja.image.url }}" />
+{% endif %}
+<meta property="og:title" content="{{ frakcja.nazwa }} - {{ frakcja.larp.nazwa }}" />
+<meta property="og:description" content="{{ frakcja.opis|striptags|truncatewords:'100' }}" />
+{% endblock meta %}
+
+
+{% block main %}
+<article class="col col-b-1">
+    <div class="col-inner">
+       <h1>{{ frakcja.nazwa }}</h1>
+       {% if frakcja.image %}
+        <div class="news-image">
+          <img src="http://arda.org.pl{{ frakcja.image.url }}" alt="Obraz dla frakcji"/>
+        </div>
+       {% endif %}
+       {{ frakcja.opis|safe }}
+       <h2>Zasady przyjęcia</h2>
+       <p><strong>Liczba wolnych miejsc:</strong> {{ frakcja.wolne_miejsca }}</p>
+       {% if frakcja.dostepna_rekrutacja %}
+        {{ frakcja.zasady_rekrutacji|safe }}
+       {% else %}
+        {% if frakcja.mozna_wybrac and frakcja.wolne_miejsca %}
+        <p>Nie ma żadnych specjalnych warunków wymaganych, by dołączyć do tej frakcji. Po prostu wybierz frakcję podczas zapisów.</p>
+        {% endif %}
+       {% endif %}
+       {% if frakcja.larp.zapisy_otwarte and frakcja.mozna_wybrac and frakcja.wolne_miejsca %}
+       <p class="align-center"><a class="btn btn-b" href="{% url frakcja_zapis frakcja.larp.slug frakcja.slug %}">Zapisz się do frakcji</a></p>
+       {% endif %}
+       {% if not frakcja.larp.zapisy_otwarte %}
+       <p><strong>Zapisy są na tę chwilę zamknięte. Aby móc się zapisać musisz poczekać, aż zostaną otwarte.</strong></p>
+       {% endif %}
+       {% if not frakcja.wolne_miejsca %}
+       <p>Nie ma już wolnych miejsc w tej frakcji. Prosimy zapisać się do innej.</p>
+       {% endif %}
+       <div class="fb-like" data-send="false" data-show-faces="true"></div>
+    </div>
+</article>
+{% include 'aside.html' %}
+{% endblock %}

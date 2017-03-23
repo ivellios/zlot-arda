@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block right_menu %}
+{% include "news/right_menu.html" %}
+{% endblock %}
+
+{% block content %}
+{% for n in object_list %}
+	<h2><a href='/news/{{n.slug}}'>{{ n.title }}</a></h2>
+        <p class="newsDate">Napisany <strong>{{ n.date|date:"Y.m.d o H:i" }}</strong>, 
+        w kategoriach:
+	        {% for i in n.category.all %}
+           	<a href="/news/category/{{ i.slug }}/">{{ i.name }}</a>{% if not forloop.last %}, {% endif %}
+        	{% endfor %}
+        </p>
+    
+	    {{ n.text|safe }}
+    
+{% endfor  %}
+
+<div style="text-align:center;">
+{% if has_previous %}
+	<a href="?page={{ previous }}"><b>Nowsze Wiadomości</b></a>  
+{% endif %}
+{% if has_previous and has_next %}
+	|
+{% endif %}
+{% if has_next %}
+	<a href="?page={{ next }}"><b>Starsze Wiadomości</b></a>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block title %}
+	Aktualności
+{% endblock %}

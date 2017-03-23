@@ -1,0 +1,60 @@
+<nav id="navigation" class="navigation">
+    <ul class="primary">
+        <li><a href="/">Aktualności</a></li>
+        <li><a href="{% url "zlot_text" 'o-zlocie' %}">Zlot</a>
+            <ul class="secondary">
+                <li><a href="{% url "zlot_text" 'o-zlocie' %}">O zlocie</a></li>
+                <li><a href="{% url "zlot_text" 'informacje' %}">Podstawowe informacje</a></li>
+                {% comment %}
+                <li><a href="{% url "zlot_text" 'program' %}">Program konwentu</a></li>
+                <li><a href="{% url "zlot_text" 'ardowe-pamiatki' %}">Ardowe pamiątki</a></li>
+                {% endcomment %}
+                <li><a href="{% url "dokumenty" %}">Dokumenty</a></li>
+                {% comment %}
+                <li><a href="{% url "zlot_text" 'klimat' %}">Część klimatyczna Zlotu</a></li>
+                <li><a href="{% url "larp_text" 'ognie-bialego-drzewa' %}">LARP Ognie Białego Drzewa</a></li>
+                <li><a href="{% url "zlot_text" 'lokalizacja-zlotu' %}">Lokalizacja Zlotu</a></li>
+                <li><a href="{% url "zlot_text" 'fabula' %}">Fabuła</a></li>
+                <li><a href="{% url "plemiona" %}">Plemiona</a></li>
+                <li><a href="{% url zapisy 2012 %}">Zapisz się</a></li>
+                <li><a href="{% url kto-jedzie %}">Uczestnicy</a></li>
+                {% endcomment %}
+                <li><a href="{% url "zlot_text" 'poprzednie-zloty' %}">Poprzednie zloty</a></li>
+            </ul>
+        </li>
+        <li><a href="{% url "partnerzy" %}">Partnerzy</a>
+            <ul class="secondary">
+                <li><a href="{% url "zlot_text" 'dla-partnerow' %}">Zostań Partnerem</a></li>
+                <li><a href="{% url "partnerzy" %}">Partnerzy wydarzenia</a></li>
+                <li><a href="{% url "patroni" %}">Patroni medialni</a></li>
+                <li><a href="{% url "zlot_text" "media" %}">Dla mediów</a></li>
+            </ul>
+        </li>
+        <li><a href="{% url "zlot_text" 'poradnik' %}">Poradnik</a>
+            <ul class="secondary">
+                <li><a href="{% url "zlot_text" 'przetrwanie-pod-namiotem' %}">Przetrwanie pod namiotem</a></li>
+                <li><a href="{% url "zlot_text" 'jak-wykonac-stroj' %}">Jak wykonać strój?</a></li>
+                <li><a href="{% url "zlot_text" 'jak-przygotowac-fryzure' %}">Jak przygotować fryzurę?</a></li>
+                <li><a href="{% url "zlot_text" 'charakteryzacja' %}">Charakteryzacja</a></li>
+            </ul>
+        </li>
+        {% comment %}
+        <li>
+            <a href="{% url "galeria_album" "zlot-arda-2012" %}">Galeria</a>
+            <ul class="secondary">
+                <li><a href="{% url "galeria_album" "zlot-arda-2012" %}">Zlot Arda 2012</a></li>
+                <li><a href="{% url "galeria_album" "zlot-arda-2011" %}">Zlot Arda 2011</a></li>
+                <li><a href="{% url "galeria_album" "zlot-arda-2010" %}">Zlot Arda 2010</a></li>
+                <li><a href="{% url "galeria_album" "zlot-arda-2009" %}">Zlot Arda 2009</a></li>
+                <li><a href="{% url "galeria_album" "zlot-arda-2008" %}">Zlot Arda 2008</a></li>
+                <li><a href="{% url "galeria_album" "beka" %}">Beka 2007</a></li>
+                <li><a href="{% url "galeria_album" "zlot-arda-2007" %}">Zlot Arda 2007</a></li>
+                <li><a href="{% url "galeria_album" "zlot-arda-2006" %}">Zlot Arda 2006</a></li>
+            </ul>
+        </li>
+        {% endcomment %}
+        <li><a href="{% url "zlot_text" 'kontakt' %}">Kontakt</a></li>
+        <li><a href="http://forum.arda.org.pl/">Forum</a></li>
+    </ul>
+</nav>
+<!-- / navigation -->

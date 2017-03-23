@@ -1,0 +1,6 @@
+forum/
+*.pyc
+.DS_Store
+arda/settings_local.py
+arda/site_media
+public

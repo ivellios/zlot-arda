@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ frakcja.nazwa }} - Zapis do frakcji skończony{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+    <div class="col-inner">
+       <h1>Zapis do frakcji: {{ frakcja.nazwa }}</h1>
+       <p><strong>Gratulujemy!</strong> Właśnie zapisałeś się do tej frakcji. Możesz teraz zobaczyć podsumowanie dla swojej frakcji na stronie <a href="{% url frakcja_list %}#{{ frakcja.slug }}">Twoje frakcje</a>. </p>
+    </div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

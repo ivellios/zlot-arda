@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load patroni_tags %}
+
+{% block meta %}
+<meta property="og:image" content="http://arda.org.pl/site_media/hero/rot1.jpg" />
+{% endblock meta %}
+
+{% block hero %}
+            <div class="hero">
+                <div class="hero-cycle">
+                    <div class="pane"><img src="{{ MEDIA_URL }}hero/h1.jpg" alt=""></div>
+                    <div class="pane"><img src="{{ MEDIA_URL }}hero/h2.jpg" alt=""></div>
+                    <div class="pane"><img src="{{ MEDIA_URL }}hero/h3.jpg" alt=""></div>
+                    <div class="pane"><img src="{{ MEDIA_URL }}hero/h4.jpg" alt=""></div>
+                    <div class="pane"><img src="{{ MEDIA_URL }}hero/h5.jpg" alt=""></div>
+                </div>
+                <!-- / hero-cycle -->
+            </div>
+            <!-- / hero -->
+{% endblock %}
+
+
+{% block main %}
+                <section class="news-container">
+                    <header class="col-inner news-container-header">
+                        <a href="{% url "news_archive" %}" class="news-see-all">zobacz wszystkie aktualności</a>
+                        <h1>Aktualności</h1>
+                    </header>
+                    <!-- / col-inner -->
+					
+                    <div class="news">
+						{% for news in object_list %}
+                        <article class="col col-a">
+                            <div class="col-inner news-text">
+                                <header class="news-header">
+                                    <time class="news-time" datetime="{{ news.date }}">{{ news.date|date:"d.m.Y"}}</time>
+                                    <h3><a href="{% url "news_single" news.slug %}">{{ news.title }}</a></h3>
+                                </header>
+                                <!-- / news-header -->
+                                {% if news.image %}
+                                <div class="news-image">
+                                    <img src="{{ news.image.url }}" alt="">
+                                </div>
+                                {% endif %}
+                                <!-- / news-image -->
+                                {{ news.text|safe|truncatewords:'100' }}
+                                <p>
+                                    <a href="{% url "news_single" news.slug %}">Czytaj całość</a>
+                                </p>
+                            </div>
+                            <!-- / col-inner -->
+                        </article>
+                        <!-- / col col-a -->
+						{% endfor %}
+                    </div>
+                    <!-- / news -->
+                </section>
+                <!-- / news-container -->
+
+                <section class="col col-c-1">
+                    <div class="col-inner">
+                        {% sponsorzy_block %}
+                    </div>
+                    <!-- / col-inner -->
+                </section>
+                <!-- / col-c-1 -->
+
+                <section class="col col-c-2">
+                    <div class="col-inner">
+                        {% patroni_block %}
+                    </div>
+                    <!-- / col-inner -->
+                </section>
+                <!-- / col-c-2 -->
+                <section class="col col-c-1">
+                    <div class="col-inner">
+                        <div style="margin-top: 12px;" class="fb-like-box" data-href="http://www.facebook.com/zlot.arda" data-width="880" data-height="300" data-show-faces="true" data-border-color="#ffffff" data-stream="false" data-header="false"></div>
+                    </div>
+                </section>
+{% endblock %}

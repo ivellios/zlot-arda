@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load patroni_tags %}
+
+{% block title %}
+	{{ static_content.title }}
+{% endblock %}
+
+{% block meta %}
+{% if static_content.image %}
+<meta property="og:image" content="http://arda.org.pl{{ static_content.image.url }}" />
+{% endif %}
+<meta property="og:title" content="{{ static_content.title }}" />
+<meta property="og:description" content="{{ static_content.content|striptags|truncatewords:'100' }}" />
+{% endblock meta %}
+
+{% block main %}
+
+<article class="col col-b-1">
+    <div class="col-inner">
+    <h1>{{ static_content.title }}</h1>
+    {{ static_content.content|safe }}
+    </div>
+    <div class="fb-like" data-send="false" data-show-faces="true"></div>
+</article>
+<aside class="col col-b-2">
+    <div class="col-inner">
+        <section>
+            {% sponsorzy_block %}
+        </section>
+        <section>
+            {% patroni_block %}
+        </section>
+        <section>
+            <div style="margin-top: 12px;" class="fb-like-box" data-href="http://www.facebook.com/zlot.arda" data-width="350" data-height="480" data-show-faces="true" data-border-color="#ffffff" data-stream="false" data-header="false"></div>
+        </section>
+    </div>
+</aside>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Twoje frakcje{% endblock %}
+
+{% block main %}
+<div class="col col-b-1">
+    <div class="col-inner">
+      <h1>Twoje frakcje</h1>
+      Poniżej znajdziesz informacje o frakcjach, do których się zapisałeś. Jeżeli jeszcze nie jesteś zapisany do frakcji, po otwarciu zapisów możesz dokonać wyboru na stronie LARP-a.
+      {% if frakcje %}
+      <ul>
+        {% for frakcjauczestnik in frakcje %}
+        {% with frakcjauczestnik.frakcja as frakcja %}
+        <li><a href="{% url frakcja_wpisy frakcja.pk %}">{{ frakcja.nazwa }}</a> (LARP: {{ frakcja.larp.nazwa }})</li>
+        {% endwith %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+</div>
+{% include 'aside.html' %}
+{% endblock %}

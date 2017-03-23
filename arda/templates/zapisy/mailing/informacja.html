@@ -1,0 +1,9 @@
+<p><strong>Witaj,</strong></p>
+
+<p>Dane użytkownika z zapisu:</p>
+<ul>
+	<li><strong>Nick</strong>: {{ uczestnictwo.uczestnik.username }}</li>
+	<li><strong>E-mail</strong>: {{ uczestnictwo.uczestnik.email }}</li>
+    <li><strong>Czy bierze udział w LARP-ie:</strong> {{ form.cleaned_data.larp_uczestnictwo }}</li>
+    <li><strong>Wybór postaci:</strong> {{ form.cleaned_data.larp_postac }}</li>
+</ul>
