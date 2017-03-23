@@ -2,10 +2,10 @@
 
 Website project in Python 2.7 / Django 1.5 for Arda Tolkienistic Convention in Poland.
 
-# Important note
+## Important note
 The project was developed in the closed environment for a years now. It has been moved to the public repository for community use. It is not a complete project - it does not include static files (may be included in the future), nor pictures or documents.
 
-# Install & Running notes
+## Installation & Running notes
 In order to run the project you need to setup your own `settings_local.py` file in the `arda` dir. It should contain following settings:
 
 ```
@@ -31,6 +31,6 @@ MAIL_PORT = 0
 
 ```
 
-# Depndencies
+## Depndencies
 
-All necesary libs are listed in `requirements.txt` file. 
+All necesary libs are listed in `requirements.txt` file.
