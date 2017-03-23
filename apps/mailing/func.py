@@ -15,7 +15,7 @@ def piszDoRekrutera(form):
 def piszDoRekruta(form):
     plemie = form.cleaned_data['plemie']
     text = ""
-	SendEmail('ivellios@arda.org.pl',plemie.rekruter_mail,u'Raport z liczebności twojego plemienia',text.encode('utf-8'))
+    SendEmail('ivellios@arda.org.pl',plemie.rekruter_mail,u'Raport z liczebności twojego plemienia',text.encode('utf-8'))
     return True
 
 import smtplib
@@ -43,14 +43,14 @@ def SendEmail(sender,recipient,subject,message,msgType=''):
     """
     # determine msg type
     if msgType == 'log':
-	# Send log file in email
+    # Send log file in email
         fp = open(message, 'rb')
         # Create a text/plain message
         # Read contents of log file into memory
         msg = MIMEText(fp.read())
         fp.close()
     else:
-	# If not a log file, just create a text/plain message
+    # If not a log file, just create a text/plain message
         msg = MIMEText(message)
 
     # User/pwd
