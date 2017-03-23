@@ -5,6 +5,10 @@ Website project in Python 2.7 / Django 1.5 for Arda Tolkienistic Convention in P
 ## Important note
 The project was developed in the closed environment for a years now. It has been moved to the public repository for community use. It is not a complete project - it does not include static files (may be included in the future), nor pictures or documents.
 
+The project was started back in 2010/2011 and was barely maintained after with little fixes, new features added ad hoc. Thus said it is still running on Django 1.5 and has some bad patterns used.
+
+Most of the code is written in Polish language.
+
 ## Installation & Running notes
 In order to run the project you need to setup your own `settings_local.py` file in the `arda` dir. It should contain following settings:
 
