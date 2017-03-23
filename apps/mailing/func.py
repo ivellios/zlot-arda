@@ -8,19 +8,15 @@ from django.conf import settings
 
 def piszDoRekrutera(form):
     plemie = form.cleaned_data['plemie']
-    text = u"""
-    """
+    text = ""
     SendEmail('noreply@arda.org.pl',plemie.rekruter_mail,u'Nowe zgłoszenie na Zlot Arda',text.encode('utf-8'))
     return True
 
 def piszDoRekruta(form):
     plemie = form.cleaned_data['plemie']
-    text = u"""
-	"""
+    text = ""
 	SendEmail('ivellios@arda.org.pl',plemie.rekruter_mail,u'Raport z liczebności twojego plemienia',text.encode('utf-8'))
     return True
-
-
 
 import smtplib
 from email.MIMEText import MIMEText
